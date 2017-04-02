@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading"><strong>{{pageTitle}}</strong></div>
+
+<!-- Filter Panel -->
+<div class="panel-body">
+  <div class="row">
+      <div class="col-md-2">Search:</div>
+      <div class="col-md-4">
+        <input type="text" name="" value="" placeholder="Type here!"
+        [(ngModel)]='searchList' />
+      </div>
+
+  </div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Search: {{searchList}}</h3>
+  </div>
+</div>
+
+
+<!-- table -->
+<div class="table-responsive">
+  <table class="table" *ngIf='posts && posts.length' >
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let post of posts'>
+        <td>{{ post.userId }}</td>
+        <td><a [routerLink]="['/post', post.id]">{{ post.id }}</a></td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+<!-- end of table -->
+</div>
+</div>
+</div>
